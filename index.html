@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Gun Mayhem</title>
+    <style>
+        #end{
+            display: none;
+            position: absolute;
+            padding: 2rem;
+            text-align: center;
+            top: 33%;
+            left: 40%;
+            background-color: black;
+            color: white;
+            border-radius: 1.15rem;
+            box-shadow: 2px 2px 25px white;
+            font-size: 1.25rem;
+        }
+        #end.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" height="600" width="800"></canvas>
+    <div  id="end">
+        <p id="winner"></p>
+    </div>
+</body>
+<script src="js/graphics.js"></script>
+<script src="js/map.js"></script>
+<script src="js/images.js"></script>
+<script src="js/gun.js"></script>
+<script src="js/chest.js"></script>
+<script src="js/shot.js"></script>
+<script src="js/player.js"></script>
+<script src="js/enemy.js"></script>
+<script src="js/input.js"></script>
+<script src="js/index.js"></script>
+
+
+</html>
