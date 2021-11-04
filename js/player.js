@@ -1,4 +1,5 @@
-
+var player1Text = document.getElementById("player1");
+var player2Text = document.getElementById("player2");
 function player(who,index){
 this.x;
 this.y;
@@ -14,18 +15,27 @@ let aboveIndex=0;
 let belowIndex=0;
 this.facingLeft=false;
 let checkDown=true;
-var rifle = new gun(20,1,45,this,[],100,60,true);
+var rifle = new gun(12,1,60,this,[],100,60,true);
 var shotgun = new gun(10,3,30,this,[-0.1,0,0.1],0,70,false)
 var sniper = new gun(20,1,40,this,[],0,300,false)
 var all = [rifle,shotgun,sniper];
 this.gun=  rifle;
-console.log(this.gun);
 this.yv=0;
+let innerText
 
+if(index ==1 ){
+   innerText= player2Text;
+}else{
+    innerText=player1Text;
+}
 
 this.fire=()=>{
     if(this.fired){
         this.gun.fire(who);
+    }else{
+        if(this.gun.con==true){
+            this.gun.shots=[];
+        }
     }    
 }
 
@@ -48,9 +58,13 @@ this.move=()=>{
     if(this.y>canvas.height||this.x<0||this.x>canvas.width){
         this.reset();
         this.hp-=1;
+        innerText.innerText= `Lives : ${this.hp}`;
         if(this.hp==0){
             end.classList.add("active");
-            winnertext.innerText=`Winner: player${index}`;
+            player2.hp=5;
+            player1.hp=5;
+            innerText.innerText= `Lives : ${this.hp}`;
+            winnertext.innerText=`Winner: Player${index}`;
         }
     }
 }

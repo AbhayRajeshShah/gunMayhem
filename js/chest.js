@@ -14,7 +14,11 @@ function chest(){
             if(level1[getIndex(this.x+20,this.y+20)]==1){
                 this.inAir=false;
                 this.yv=0;
-                level1[getIndex(this.x,this.y)]=2;
+                if(level1[getIndex(this.x,this.y)]==0){
+                    level1[getIndex(this.x,this.y)]=2;
+                }else{
+                    level1[getIndex(this.x,this.y)+1]=2;
+                }        
                 this.index=getIndex(this.x+20,this.y+20);
             }else{
                 this.yv+=0.2;

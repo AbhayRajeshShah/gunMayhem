@@ -28,7 +28,8 @@ const all = ()=>{
 //draw
 
 const drawAll = ()=>{
-
+    player1.fire()
+    player2.fire();
     drawMap();
     chests.forEach((el)=>{
         el.draw();
@@ -51,8 +52,7 @@ const moveAll = () =>{
 }
 
 setInterval(()=>{
-    player1.fire()
-    player2.fire();
+
     time+=0.5;
     if(time%20==0){
         chests.push(new chest());

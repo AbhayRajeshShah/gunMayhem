@@ -4,6 +4,7 @@ function gun(firePower,shots,time,what,ang,interval,pow,con){
     this.y=0;
     this.ang=0;
     this.fired=false;
+    this.con=con;
     this.facingLeft=true;
         for(var i=0;i<shots;i++){
             if(ang.length>0){
@@ -41,26 +42,28 @@ function gun(firePower,shots,time,what,ang,interval,pow,con){
         })
         
     }
+    let counter=0;
     this.fire=()=>{
         if(con){
-            this.shots.push(new shot(this,0,time,firePower,pow))
+            counter++;
+            if(counter%5==0){
+                this.shots.push(new shot(this,0,time,firePower,pow))
+            }
+
         }
         
         this.shots.forEach((el,index)=>{
                 setTimeout(()=>{
-                    el.shootFrom();
+                    if(el.shotReady()){
+                        el.shootFrom();
+                    }        
                 },(index*interval))            
         })
         
     }
     this.check=(bruh)=>{
         this.shots.forEach((el,index)=>{
-        el.checkCollision(bruh)
-        if(con){
-            if(el.shotDone()){
-                this.shots.splice(index,1);
-            }
-        }     
+        el.checkCollision(bruh)    
         })
     }
 }
