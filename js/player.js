@@ -64,6 +64,7 @@ this.move=()=>{
             player2.hp=5;
             player1.hp=5;
             innerText.innerText= `Lives : ${this.hp}`;
+            
             winnertext.innerText=`Winner: Player${index}`;
         }
     }
